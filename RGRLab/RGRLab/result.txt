@@ -1,6 +1,0 @@
-ID: 45612, Name: adasld askdasd asdsa, Team: Dynamo, Goals: 45, Passes: 12, Penalty time: 65
-ID: 54018, Name: Zaitsev Artem Sergeyevich, Team: Dynamo, Goals: 4, Passes: 12, Penalty time: 23
-ID: 21759, Name: Lebedev Vladimir Andreevich, Team: Spartak, Goals: 15, Passes: 1, Penalty time: 19
-ID: 98213, Name: Kuznetsov Dmitry Sergeevich, Team: Dynamo, Goals: 9, Passes: 6, Penalty time: 25
-ID: 34457, Name: Smirnov Sergey Aleksandrovich, Team: Dynamo, Goals: 11, Passes: 4, Penalty time: 18
-ID: 29142, Name: Fedorov Andrey Vladimirovich, Team: Dynamo, Goals: 7, Passes: 8, Penalty time: 12
