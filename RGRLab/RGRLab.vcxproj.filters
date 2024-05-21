@@ -21,6 +21,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="spartak_players.txt" />
-    <Text Include="dinamo_players.txt" />
+    <Text Include="dynamo_players.txt" />
+    <Text Include="result.txt" />
   </ItemGroup>
 </Project>

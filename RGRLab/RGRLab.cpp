@@ -2,9 +2,9 @@
 #include <string> // Подключение библиотеки для работы со строками
 #include <fstream> // Подключение библиотеки для работы с файлами
 #include <vector> // Подключение библиотеки для работы с векторами
-#include <algorithm> // Подключение библиотеки для использования алгоритмов, таких как sort и find_if
+#include <algorithm> // Подключение библиотеки для использования алгоритмов, таких как sort, find_if, transform 
 #include <cctype> // Подключение библиотеки для работы с функциями преобразования символов: isdigit, transform
-using namespace std;
+using namespace std; // Пространство имён std
 
 // Класс, представляющий игрока
 class Player {
@@ -137,7 +137,7 @@ bool comparePlayers(Player a, Player b) {
     return a.getTotalScore() > b.getTotalScore();
 }
 
-// Функция для получения 6 лучших игроков по общему количеству очков
+// Функция для получения лучших игроков по общему количеству очков
 vector<Player> getTopPlayers(vector<Player> players, int count) {
     vector<Player> topPlayers = players;
     sort(topPlayers.begin(), topPlayers.end(), comparePlayers);
@@ -182,25 +182,21 @@ void printTeamMenu(char team, vector<Player> dynamoPlayers, vector<Player> spart
     }
 }
 
-void addPlayer(vector<Player>& dynamoPlayers, vector<Player>& spartakPlayers) {
-
-}
-
 // Основная функция программы
 int main() {
     char choice;
 
     // Чтение данных об игроках из файлов
-    vector<Player> dynamoPlayers = readPlayersFromFile("dinamo_players.txt");
+    vector<Player> dynamoPlayers = readPlayersFromFile("dynamo_players.txt");
     vector<Player> spartakPlayers = readPlayersFromFile("spartak_players.txt");
     vector<Player> allPlayers = dynamoPlayers;
     allPlayers.insert(allPlayers.end(), spartakPlayers.begin(), spartakPlayers.end());
-
+    
     do {
         // Отображение главного меню
         cout << "Menu:" << endl;
         cout << "1. Display a list of players" << endl;
-        cout << "2. Output to a file result.txt and the top 6 players of both teams in total points (goals + passes) are shown on the screen" << endl;
+        cout << "2. Output to a file result.txt top 6 players of both teams in total points (goals + passes) and show on the screen" << endl;
         cout << "3. Sorting methods" << endl;
         cout << "4. Delete by ID" << endl;
         cout << "5. Add a player" << endl;
@@ -248,41 +244,39 @@ int main() {
         case '3': {
             system("CLS");
             cout << "Which team should sort? (1.dynamo/2.spartak/3.all). Type 0 to return to main screen: " << endl;
-            string team;
+            int team;
             cin >> team;
-            if (team == "0") {
+            if (team == 0) {
                 system("CLS");
                 break;
             }
-            transform(team.begin(), team.end(), team.begin(), ::tolower);
             vector<Player> Players;
             // Определение команды для сортировки
             system("CLS");
-            if (team == "1") {
+            if (team == 1) {
                 Players = dynamoPlayers;
             }
-            else if (team == "2") {
+            else if (team == 2) {
                 Players = spartakPlayers;
             }
-            else if (team == "3") {
+            else if (team == 3) {
                 Players = allPlayers;
             }
             else {
                 cout << "Invalid choice. Sorting all players." << endl << endl;
                 Players = allPlayers; 
             }
-
             cout << "Select sorting method:" << endl;
             cout << "1. Last name" << endl;
             cout << "2. Number of passes" << endl;
             cout << "3. Number of goals" << endl;
             cout << "4. Penalty time" << endl;
             cout << "Enter your choice: ";
-            char sortChoice;
+            int sortChoice;
             cin >> sortChoice;
             // Выбор метода сортировки
             switch (sortChoice) {
-            case '1':
+            case 1:
                 // Сортировка по фамилии
                 sort(Players.begin(), Players.end(), [](Player a, Player b) {
                     string str1 = a.get_Name1();
@@ -292,19 +286,19 @@ int main() {
                     return str1 < str2;
                     });
                 break;
-            case '2':
+            case 2:
                 // Сортировка по количеству передач
                 sort(Players.begin(), Players.end(), [](Player a, Player b) {
                     return a.get_Passes() > b.get_Passes();
                     });
                 break;
-            case '3':
+            case 3:
                 // Сортировка по количеству голов
                 sort(Players.begin(), Players.end(), [](Player a, Player b) {
                     return a.get_Goals() > b.get_Goals();
                     });
                 break;
-            case '4':
+            case 4:
                 // Сортировка по штрафному времени
                 sort(Players.begin(), Players.end(), [](Player a, Player b) {
                     return a.get_PenaltyTime() > b.get_PenaltyTime();
@@ -354,7 +348,7 @@ int main() {
             if (dynamoPlayerToRemove != dynamoPlayers.end()) {
                 dynamoPlayers.erase(dynamoPlayerToRemove);
                 // Запись обновленного списка игроков в файл
-                writePlayersToFile(dynamoPlayers, "dinamo_players.txt");
+                writePlayersToFile(dynamoPlayers, "dynamo_players.txt");
                 system("CLS");
                 cout << "A player with ID " << idToRemove << " has been removed from the Dynamo team." << endl;
             }
@@ -442,8 +436,8 @@ int main() {
             if (team == "Dynamo") {
                 dynamoPlayers.push_back(newPlayer);
                 // Запись обновленного списка игроков в файл
-                writePlayersToFile(dynamoPlayers, "dinamo_players.txt");
-                cout << "The player is recorded in a file dinamo_players.txt" << endl << endl;
+                writePlayersToFile(dynamoPlayers, "dynamo_players.txt");
+                cout << "The player is recorded in a file dynamo_players.txt" << endl << endl;
             }
             else if (team == "Spartak") {
                 spartakPlayers.push_back(newPlayer);

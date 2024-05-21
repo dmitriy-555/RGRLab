@@ -130,7 +130,8 @@
     <ClCompile Include="RGRLab.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="dinamo_players.txt" />
+    <Text Include="dynamo_players.txt" />
+    <Text Include="result.txt" />
     <Text Include="spartak_players.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

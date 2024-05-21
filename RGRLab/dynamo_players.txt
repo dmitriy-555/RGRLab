@@ -10,6 +10,5 @@
 43796 Kirillov Kirill Kirillovich Dynamo 12 2 22
 76283 Saveliev Saveliy Savelievich Dynamo 14 1 19
 49175 Egorov Egor Egorovich Dynamo 3 11 16
-80712 Mikhailov Mikhail Mikhailovich Dynamo 15 0 21
-15289 Aleksandrov Alexander Aleksandrovich Dynamo 1 14 24
-45612 adasld askdasd asdsa Dynamo 45 12 65
+15324 asd sds ds Dynamo 12 12 21
+15151 Ivanov Ivan Ivanovich Dynamo 10 5 45
